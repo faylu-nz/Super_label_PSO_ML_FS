@@ -22,10 +22,10 @@ if __name__ == '__main__':
 
     # Main entry
 
-    data = Util.read_arff('datasets/' + datasets[6] + '.arff')
+    data = Util.read_arff('datasets/' + datasets[7] + '.arff')
 
-    y = data.iloc[:, locations[6]:]
-    X = data.iloc[:, :locations[6]]
+    y = data.iloc[:, locations[7]:]
+    X = data.iloc[:, :locations[7]]
     n_features = len(list(X))
     X = X.to_numpy()
     y = y.to_numpy()
@@ -72,8 +72,8 @@ if __name__ == '__main__':
         super_full_hams.append(super_full_ham)
 
         #  perform FS
-        pop_size = 30
-        n_iterations = 50
+        pop_size = 3
+        n_iterations = 5
 
         # Standard PSO
         start_PSO_std = time.time_ns()    # marking start time of PSO
@@ -144,6 +144,6 @@ if __name__ == '__main__':
     to_print += 'Ave Super label Feature Ratio: %.2f\n' % np.average(
         f_ratios_sup)
 
-    f = open('records/record_' + datasets[6] + '.txt', 'w')
+    f = open('records/record_' + datasets[7] + '.txt', 'w')
     f.write(to_print)
     f.close()

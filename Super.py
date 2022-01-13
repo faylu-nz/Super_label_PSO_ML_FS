@@ -37,6 +37,7 @@ def convert(subgroup_label):
 def label_convert(y_train_, no_cls):  # Here y is dataframe
 
     subgroups = []
+    
     super_labels = []
     kmeans = KMeans(n_clusters=no_cls, random_state=0).fit(y_train_.T)
     # dictionary to record key(cluster index) and value(cluster columns)
@@ -81,7 +82,7 @@ def super_classifier(X_train_, y_train_):
 
     clf = MLkNN(k=3)
     X_train_ = StandardScaler().fit_transform(X_train_)
-    y_s, subgroups, dict_clst_col = label_convert(y_train_, 2)
+    y_s, subgroups, dict_clst_col = label_convert(y_train_, 4)
     clf.fit(X_train_, y_s)
 
     return clf
@@ -132,7 +133,7 @@ def sub_classifiers(X_train_, y_train_):
 
     clfs = []
     # y_super labels, converted from original y labels (target)
-    y_s, subgroups, dict_clst_col = label_convert(y_train_, 2)
+    y_s, subgroups, dict_clst_col = label_convert(y_train_, 4)
     total_zeros = zeros(y_s)
     scaler = StandardScaler()
     Xs = remove_zeros(X_train_, y_s)
@@ -230,7 +231,7 @@ def fill_zeros(total_test_zeros, y_test_sub_preds, y_test_):
 
 def sort_preds(total_filled_preds, y_train_):
 
-    y_s, subgroup, dict_clst_col = label_convert(y_train_, 2)
+    y_s, subgroup, dict_clst_col = label_convert(y_train_, 4)
     y_test_sub_preds = []
     for i in range(len(total_filled_preds)):
         np_total_filled_pred = np.array(total_filled_preds[i])

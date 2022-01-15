@@ -22,10 +22,10 @@ if __name__ == '__main__':
 
     # Main entry
 
-    data = Util.read_arff('datasets/' + datasets[7] + '.arff')
+    data = Util.read_arff('datasets/' + datasets[3] + '.arff')
 
-    y = data.iloc[:, locations[7]:]
-    X = data.iloc[:, :locations[7]]
+    y = data.iloc[:, locations[3]:]
+    X = data.iloc[:, :locations[3]]
     n_features = len(list(X))
     X = X.to_numpy()
     y = y.to_numpy()
@@ -144,6 +144,6 @@ if __name__ == '__main__':
     to_print += 'Ave Super label Feature Ratio: %.2f\n' % np.average(
         f_ratios_sup)
 
-    f = open('records/record_' + datasets[7] + '.txt', 'w')
+    f = open('records/record_' + datasets[3] + '.txt', 'w')
     f.write(to_print)
     f.close()

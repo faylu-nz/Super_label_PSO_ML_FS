@@ -3,32 +3,46 @@ import Swarm
 import Util
 import Super
 import numpy as np
-
+import pandas as pd
 from sklearn.metrics import hamming_loss
 from sklearn.preprocessing import StandardScaler
 from skmultilearn.adapt import MLkNN
 from skmultilearn.model_selection import IterativeStratification
+from skmultilearn.dataset import load_dataset
+
 import time
 import warnings
 warnings.filterwarnings('ignore')
 
-datasets = ['birds-train', 'CAL500', 'emotions',
-            'enron', 'flags', 'medical', 'scene', 'yeast']
-locations = [260, 68, 72, 1001, 19, 1449, 294, 103]
-n_labels = [19, 174, 6, 53, 7, 45, 6, 14]
+datasets = ['CAL500', 'flags']
+n_featureses = [68, 19]
+n_labels = [174, 7]
+
+datasets_small = ['emotions', 'scene']
+datasets_medium = ['yeast', 'birds', 'genbase']
+datasets_large = ['medical', 'enron', 'mediamill', 'bibtex', 'Corel5k']
+no_clses_small = [2]
+no_clses_medium = [2, 4, 6]
+no_clses_large = [2, 4, 6, 8, 10]
+
 
 # Main entry
 if __name__ == '__main__':
 
     # Main entry
 
-    data = Util.read_arff('datasets/' + datasets[3] + '.arff')
+    # data = Util.read_arff('datasets/' + datasets[3] + '.arff')
 
-    y = data.iloc[:, locations[3]:]
-    X = data.iloc[:, :locations[3]]
+    # y = data.iloc[:, n_featureses[3]:]
+    # X = data.iloc[:, :n_featureses[3]]
+    # n_features = len(list(X))
+    # X = X.to_numpy()
+    # y = y.to_numpy()
+    
+    X, y, feature_names, label_names = load_dataset(datasets_large[3], 'undivided')
+    X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
+    y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
     n_features = len(list(X))
-    X = X.to_numpy()
-    y = y.to_numpy()
 
     n_splits = 5
     k_fold = IterativeStratification(

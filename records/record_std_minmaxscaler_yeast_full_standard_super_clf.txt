@@ -1,0 +1,36 @@
+--------------Fold 1----------------
+Standard classification with full feature hamming loss: 0.2207
+Super classification with full feature hamming loss with 2 clusters: 0.2279
+Super classification with full feature hamming loss with 4 clusters: 0.2327
+Super classification with full feature hamming loss with 6 clusters: 0.2281
+Super classification with full feature hamming loss with 8 clusters: 0.2251
+--------------Fold 2----------------
+Standard classification with full feature hamming loss: 0.2175
+Super classification with full feature hamming loss with 2 clusters: 0.2243
+Super classification with full feature hamming loss with 4 clusters: 0.2329
+Super classification with full feature hamming loss with 6 clusters: 0.2278
+Super classification with full feature hamming loss with 8 clusters: 0.2246
+--------------Fold 3----------------
+Standard classification with full feature hamming loss: 0.2195
+Super classification with full feature hamming loss with 2 clusters: 0.2201
+Super classification with full feature hamming loss with 4 clusters: 0.2278
+Super classification with full feature hamming loss with 6 clusters: 0.2260
+Super classification with full feature hamming loss with 8 clusters: 0.2250
+--------------Fold 4----------------
+Standard classification with full feature hamming loss: 0.2307
+Super classification with full feature hamming loss with 2 clusters: 0.2312
+Super classification with full feature hamming loss with 4 clusters: 0.2427
+Super classification with full feature hamming loss with 6 clusters: 0.2365
+Super classification with full feature hamming loss with 8 clusters: 0.2358
+--------------Fold 5----------------
+Standard classification with full feature hamming loss: 0.2123
+Super classification with full feature hamming loss with 2 clusters: 0.2138
+Super classification with full feature hamming loss with 4 clusters: 0.2283
+Super classification with full feature hamming loss with 6 clusters: 0.2211
+Super classification with full feature hamming loss with 8 clusters: 0.2186
+--------------Average----------------
+Ave Standard Classification Accuracy: 0.2201
+Ave Super Classification with 2 clusters: 0.2235
+Ave Super Classification with 4 clusters: 0.2329
+Ave Super Classification with 6 clusters: 0.2279
+Ave Super Classification with 8 clusters: 0.2258

@@ -1,0 +1,24 @@
+--------------Fold 1----------------
+Standard classification with full feature hamming loss: 0.3187
+Super classification with full feature hamming loss with 2 clusters: 0.3150
+Super classification with full feature hamming loss with 4 clusters: 0.3114
+--------------Fold 2----------------
+Standard classification with full feature hamming loss: 0.3233
+Super classification with full feature hamming loss with 2 clusters: 0.2368
+Super classification with full feature hamming loss with 4 clusters: 0.2481
+--------------Fold 3----------------
+Standard classification with full feature hamming loss: 0.3321
+Super classification with full feature hamming loss with 2 clusters: 0.3036
+Super classification with full feature hamming loss with 4 clusters: 0.2857
+--------------Fold 4----------------
+Standard classification with full feature hamming loss: 0.3398
+Super classification with full feature hamming loss with 2 clusters: 0.3089
+Super classification with full feature hamming loss with 4 clusters: 0.2664
+--------------Fold 5----------------
+Standard classification with full feature hamming loss: 0.3393
+Super classification with full feature hamming loss with 2 clusters: 0.2714
+Super classification with full feature hamming loss with 4 clusters: 0.2893
+--------------Average----------------
+Ave Standard Classification Accuracy: 0.3306
+Ave Super Classification with 2 clusters: 0.2815
+Ave Super Classification with 4 clusters: 0.2809

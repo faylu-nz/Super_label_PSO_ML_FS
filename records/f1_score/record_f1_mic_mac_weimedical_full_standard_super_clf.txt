@@ -1,0 +1,114 @@
+--------------Fold 1----------------
+Standard classification with full feature f1 micro: 0.7054
+Standard classification with full feature f1 macro: 0.2644
+Standard classification with full feature f1 weighted: 0.6539
+Super classification with full feature f1 micro with 2 clusters: 0.6940
+Super classification with full feature f1 macro with 2 clusters: 0.2771
+Super classification with full feature f1 weighted with 2 clusters: 0.6495
+Super classification with full feature f1 micro with 4 clusters: 0.6920
+Super classification with full feature f1 macro with 4 clusters: 0.2788
+Super classification with full feature f1 weighted with 4 clusters: 0.6410
+Super classification with full feature f1 micro with 6 clusters: 0.7041
+Super classification with full feature f1 macro with 6 clusters: 0.2967
+Super classification with full feature f1 weighted with 6 clusters: 0.6602
+Super classification with full feature f1 micro with 8 clusters: 0.7079
+Super classification with full feature f1 macro with 8 clusters: 0.2684
+Super classification with full feature f1 weighted with 8 clusters: 0.6539
+Super classification with full feature f1 micro with 10 clusters: 0.6994
+Super classification with full feature f1 macro with 10 clusters: 0.2476
+Super classification with full feature f1 weighted with 10 clusters: 0.6487
+--------------Fold 2----------------
+Standard classification with full feature f1 micro: 0.7056
+Standard classification with full feature f1 macro: 0.2622
+Standard classification with full feature f1 weighted: 0.6770
+Super classification with full feature f1 micro with 2 clusters: 0.6782
+Super classification with full feature f1 macro with 2 clusters: 0.2411
+Super classification with full feature f1 weighted with 2 clusters: 0.6444
+Super classification with full feature f1 micro with 4 clusters: 0.6851
+Super classification with full feature f1 macro with 4 clusters: 0.2379
+Super classification with full feature f1 weighted with 4 clusters: 0.6506
+Super classification with full feature f1 micro with 6 clusters: 0.6819
+Super classification with full feature f1 macro with 6 clusters: 0.2316
+Super classification with full feature f1 weighted with 6 clusters: 0.6432
+Super classification with full feature f1 micro with 8 clusters: 0.6835
+Super classification with full feature f1 macro with 8 clusters: 0.2514
+Super classification with full feature f1 weighted with 8 clusters: 0.6755
+Super classification with full feature f1 micro with 10 clusters: 0.6932
+Super classification with full feature f1 macro with 10 clusters: 0.2131
+Super classification with full feature f1 weighted with 10 clusters: 0.6397
+--------------Fold 3----------------
+Standard classification with full feature f1 micro: 0.6565
+Standard classification with full feature f1 macro: 0.2441
+Standard classification with full feature f1 weighted: 0.6234
+Super classification with full feature f1 micro with 2 clusters: 0.6527
+Super classification with full feature f1 macro with 2 clusters: 0.2460
+Super classification with full feature f1 weighted with 2 clusters: 0.6234
+Super classification with full feature f1 micro with 4 clusters: 0.6638
+Super classification with full feature f1 macro with 4 clusters: 0.2544
+Super classification with full feature f1 weighted with 4 clusters: 0.6227
+Super classification with full feature f1 micro with 6 clusters: 0.6696
+Super classification with full feature f1 macro with 6 clusters: 0.2380
+Super classification with full feature f1 weighted with 6 clusters: 0.6175
+Super classification with full feature f1 micro with 8 clusters: 0.6586
+Super classification with full feature f1 macro with 8 clusters: 0.2592
+Super classification with full feature f1 weighted with 8 clusters: 0.6399
+Super classification with full feature f1 micro with 10 clusters: 0.6638
+Super classification with full feature f1 macro with 10 clusters: 0.2604
+Super classification with full feature f1 weighted with 10 clusters: 0.6357
+--------------Fold 4----------------
+Standard classification with full feature f1 micro: 0.6796
+Standard classification with full feature f1 macro: 0.2556
+Standard classification with full feature f1 weighted: 0.6498
+Super classification with full feature f1 micro with 2 clusters: 0.6594
+Super classification with full feature f1 macro with 2 clusters: 0.2312
+Super classification with full feature f1 weighted with 2 clusters: 0.6323
+Super classification with full feature f1 micro with 4 clusters: 0.6667
+Super classification with full feature f1 macro with 4 clusters: 0.2320
+Super classification with full feature f1 weighted with 4 clusters: 0.6390
+Super classification with full feature f1 micro with 6 clusters: 0.6783
+Super classification with full feature f1 macro with 6 clusters: 0.2367
+Super classification with full feature f1 weighted with 6 clusters: 0.6456
+Super classification with full feature f1 micro with 8 clusters: 0.6653
+Super classification with full feature f1 macro with 8 clusters: 0.2560
+Super classification with full feature f1 weighted with 8 clusters: 0.6462
+Super classification with full feature f1 micro with 10 clusters: 0.6800
+Super classification with full feature f1 macro with 10 clusters: 0.2498
+Super classification with full feature f1 weighted with 10 clusters: 0.6390
+--------------Fold 5----------------
+Standard classification with full feature f1 micro: 0.6639
+Standard classification with full feature f1 macro: 0.2908
+Standard classification with full feature f1 weighted: 0.6494
+Super classification with full feature f1 micro with 2 clusters: 0.6582
+Super classification with full feature f1 macro with 2 clusters: 0.2988
+Super classification with full feature f1 weighted with 2 clusters: 0.6462
+Super classification with full feature f1 micro with 4 clusters: 0.6549
+Super classification with full feature f1 macro with 4 clusters: 0.2634
+Super classification with full feature f1 weighted with 4 clusters: 0.6141
+Super classification with full feature f1 micro with 6 clusters: 0.6597
+Super classification with full feature f1 macro with 6 clusters: 0.2856
+Super classification with full feature f1 weighted with 6 clusters: 0.6365
+Super classification with full feature f1 micro with 8 clusters: 0.6324
+Super classification with full feature f1 macro with 8 clusters: 0.2822
+Super classification with full feature f1 weighted with 8 clusters: 0.6284
+Super classification with full feature f1 micro with 10 clusters: 0.6479
+Super classification with full feature f1 macro with 10 clusters: 0.2726
+Super classification with full feature f1 weighted with 10 clusters: 0.6192
+--------------Average----------------
+Ave Standard Classification Accuracy: 0.6822
+Ave Standard Classification Accuracy: 0.2634
+Ave Standard Classification Accuracy: 0.6507
+Ave Super Classification with 2 clusters: 0.6685
+Ave Super Classification with 2 clusters: 0.2588
+Ave Super Classification with 2 clusters: 0.6392
+Ave Super Classification with 4 clusters: 0.6725
+Ave Super Classification with 4 clusters: 0.2533
+Ave Super Classification with 4 clusters: 0.6335
+Ave Super Classification with 6 clusters: 0.6787
+Ave Super Classification with 6 clusters: 0.2577
+Ave Super Classification with 6 clusters: 0.6406
+Ave Super Classification with 8 clusters: 0.6695
+Ave Super Classification with 8 clusters: 0.2634
+Ave Super Classification with 8 clusters: 0.6488
+Ave Super Classification with 10 clusters: 0.6769
+Ave Super Classification with 10 clusters: 0.2487
+Ave Super Classification with 10 clusters: 0.6365

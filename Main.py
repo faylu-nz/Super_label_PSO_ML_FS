@@ -22,3 +22,5 @@ no_clses_list = [no_clses_small, no_clses_medium, no_clses_large]
 if __name__ == '__main__':
     Calculation.full_std_sel_sup_f1(datasets_list, no_clses_list)
     Calculation.full_std_sel_std_f1(datasets_list)
+    Calculation.full_std_sel_sup_hl(datasets_list, no_clses_list)
+    Calculation.full_std_sel_std_hl(datasets_list)

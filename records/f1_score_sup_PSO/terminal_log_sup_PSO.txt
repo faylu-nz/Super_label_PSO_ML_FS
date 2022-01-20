@@ -1,0 +1,213 @@
+emotions is running: ===================================================
+emotions:undivided - exists, not redownloading
+Fold  0
+Full_f1_micro:  0.6272855133614628
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.6365517398442152
+Iterate  2  gbest value is  0.6365517398442152
+Iterate  3  gbest value is  0.6365517398442152
+Iterate  4  gbest value is  0.6433155654203541
+Iterate  5  gbest value is  0.6433155654203541
+Iterate  6  gbest value is  0.6598862322995648
+Iterate  7  gbest value is  0.6598862322995648
+Iterate  8  gbest value is  0.6598862322995648
+Iterate  9  gbest value is  0.6598862322995648
+Iterate  10  gbest value is  0.6598862322995648
+Iterate  11  gbest value is  0.6598862322995648
+Iterate  12  gbest value is  0.6598862322995648
+Iterate  13  gbest value is  0.6598862322995648
+Iterate  14  gbest value is  0.6598862322995648
+Iterate  15  gbest value is  0.6598862322995648
+Iterate  16  gbest value is  0.6598862322995648
+Iterate  17  gbest value is  0.6598862322995648
+Iterate  18  gbest value is  0.6598862322995648
+Iterate  19  gbest value is  0.6598862322995648
+Selected_f1_micro:  0.6106442577030813
+Fold  1
+Full_f1_micro:  0.6414565826330533
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.6193265717834842
+Iterate  2  gbest value is  0.6193265717834842
+Iterate  3  gbest value is  0.6199584993707034
+Iterate  4  gbest value is  0.6199584993707034
+Iterate  5  gbest value is  0.6199584993707034
+Iterate  6  gbest value is  0.6199584993707034
+Iterate  7  gbest value is  0.6199584993707034
+Iterate  8  gbest value is  0.6282727061585872
+Iterate  9  gbest value is  0.6385469442469643
+Iterate  10  gbest value is  0.6387104883816751
+Iterate  11  gbest value is  0.6387104883816751
+Iterate  12  gbest value is  0.6387104883816751
+Iterate  13  gbest value is  0.6387104883816751
+Iterate  14  gbest value is  0.6387104883816751
+Iterate  15  gbest value is  0.6387104883816751
+Iterate  16  gbest value is  0.6387104883816751
+Iterate  17  gbest value is  0.6387104883816751
+Iterate  18  gbest value is  0.6387104883816751
+Iterate  19  gbest value is  0.6387104883816751
+Selected_f1_micro:  0.6584362139917695
+Fold  2
+Full_f1_micro:  0.662937062937063
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.6417027166902334
+Iterate  2  gbest value is  0.6417027166902334
+Iterate  3  gbest value is  0.6417027166902334
+Iterate  4  gbest value is  0.645275131503709
+Iterate  5  gbest value is  0.645275131503709
+Iterate  6  gbest value is  0.645275131503709
+Iterate  7  gbest value is  0.645275131503709
+Iterate  8  gbest value is  0.645275131503709
+Iterate  9  gbest value is  0.647644394264928
+Iterate  10  gbest value is  0.647644394264928
+Iterate  11  gbest value is  0.647644394264928
+Iterate  12  gbest value is  0.647644394264928
+Iterate  13  gbest value is  0.6519421828170889
+Iterate  14  gbest value is  0.659885167777834
+Iterate  15  gbest value is  0.659885167777834
+Iterate  16  gbest value is  0.659885167777834
+Iterate  17  gbest value is  0.659885167777834
+Iterate  18  gbest value is  0.659885167777834
+Iterate  19  gbest value is  0.659885167777834
+Selected_f1_micro:  0.631578947368421
+yeast is running: ===================================================
+yeast:undivided - exists, not redownloading
+Fold  0
+Full_f1_micro:  0.61998450813323
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.5957054600322839
+Iterate  2  gbest value is  0.5973452810947424
+Iterate  3  gbest value is  0.5973452810947424
+Iterate  4  gbest value is  0.6001115302437294
+Iterate  5  gbest value is  0.6034871470888657
+Iterate  6  gbest value is  0.6057605636319899
+Iterate  7  gbest value is  0.6069169656057519
+Iterate  8  gbest value is  0.608196926273747
+Iterate  9  gbest value is  0.6134997939882012
+Iterate  10  gbest value is  0.6134997939882012
+Iterate  11  gbest value is  0.6147600879047656
+Iterate  12  gbest value is  0.617072926445139
+Iterate  13  gbest value is  0.617072926445139
+Iterate  14  gbest value is  0.617072926445139
+Iterate  15  gbest value is  0.617072926445139
+Iterate  16  gbest value is  0.617072926445139
+Iterate  17  gbest value is  0.617072926445139
+Iterate  18  gbest value is  0.617072926445139
+Iterate  19  gbest value is  0.617072926445139
+Selected_f1_micro:  0.6061734139910037
+Fold  1
+Full_f1_micro:  0.6240713224368499
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.6178325090122047
+Iterate  2  gbest value is  0.6178325090122047
+Iterate  3  gbest value is  0.6178325090122047
+Iterate  4  gbest value is  0.6201426369150975
+Iterate  5  gbest value is  0.6237427564807684
+Iterate  6  gbest value is  0.6237427564807684
+Iterate  7  gbest value is  0.6237427564807684
+Iterate  8  gbest value is  0.6237427564807684
+Iterate  9  gbest value is  0.6238638954107244
+Iterate  10  gbest value is  0.6273480514642863
+Iterate  11  gbest value is  0.6273480514642863
+Iterate  12  gbest value is  0.6273480514642863
+Iterate  13  gbest value is  0.6273480514642863
+Iterate  14  gbest value is  0.6273480514642863
+Iterate  15  gbest value is  0.6273480514642863
+Iterate  16  gbest value is  0.6273480514642863
+Iterate  17  gbest value is  0.6273480514642863
+Iterate  18  gbest value is  0.6273480514642863
+Iterate  19  gbest value is  0.6273480514642863
+Selected_f1_micro:  0.6220555138784696
+Fold  2
+Full_f1_micro:  0.6203603881102726
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.6065303831839031
+Iterate  2  gbest value is  0.6085070275830068
+Iterate  3  gbest value is  0.6093306899956351
+Iterate  4  gbest value is  0.6093306899956351
+Iterate  5  gbest value is  0.6163942807245387
+Iterate  6  gbest value is  0.6163942807245387
+Iterate  7  gbest value is  0.6163942807245387
+Iterate  8  gbest value is  0.6163942807245387
+Iterate  9  gbest value is  0.6163942807245387
+Iterate  10  gbest value is  0.6181149744381452
+Iterate  11  gbest value is  0.6181149744381452
+Iterate  12  gbest value is  0.6181149744381452
+Iterate  13  gbest value is  0.6205030065317368
+Iterate  14  gbest value is  0.6205030065317368
+Iterate  15  gbest value is  0.6205030065317368
+Iterate  16  gbest value is  0.6205030065317368
+Iterate  17  gbest value is  0.6205030065317368
+Iterate  18  gbest value is  0.6205030065317368
+Iterate  19  gbest value is  0.6205030065317368
+Selected_f1_micro:  0.6159777914867366
+medical is running: ===================================================
+medical:undivided - exists, not redownloading
+Fold  0
+Full_f1_micro:  0.6387434554973822
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.5617622532264336
+Iterate  2  gbest value is  0.5806448804940118
+Iterate  3  gbest value is  0.5806448804940118
+Iterate  4  gbest value is  0.5806448804940118
+Iterate  5  gbest value is  0.6099759007028295
+Iterate  6  gbest value is  0.6172538453147575
+Iterate  7  gbest value is  0.6185328937300892
+Iterate  8  gbest value is  0.6475940033143636
+Iterate  9  gbest value is  0.6475940033143636
+Iterate  10  gbest value is  0.6475940033143636
+Iterate  11  gbest value is  0.6475940033143636
+Iterate  12  gbest value is  0.6475940033143636
+Iterate  13  gbest value is  0.6478271390745025
+Iterate  14  gbest value is  0.6478271390745025
+Iterate  15  gbest value is  0.6634664064126693
+Iterate  16  gbest value is  0.6634664064126693
+Iterate  17  gbest value is  0.6634664064126693
+Iterate  18  gbest value is  0.6634664064126693
+Iterate  19  gbest value is  0.6634664064126693
+Selected_f1_micro:  0.6572237960339944
+Fold  1
+Full_f1_micro:  0.6545924967658473
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.5517524589750867
+Iterate  2  gbest value is  0.5828400263182871
+Iterate  3  gbest value is  0.5828400263182871
+Iterate  4  gbest value is  0.5998315563532954
+Iterate  5  gbest value is  0.6089704451736088
+Iterate  6  gbest value is  0.6166519263293456
+Iterate  7  gbest value is  0.6200988926107321
+Iterate  8  gbest value is  0.6240053697985365
+Iterate  9  gbest value is  0.6240053697985365
+Iterate  10  gbest value is  0.6240053697985365
+Iterate  11  gbest value is  0.6240053697985365
+Iterate  12  gbest value is  0.6240053697985365
+Iterate  13  gbest value is  0.6240053697985365
+Iterate  14  gbest value is  0.6240053697985365
+Iterate  15  gbest value is  0.6240053697985365
+Iterate  16  gbest value is  0.6240053697985365
+Iterate  17  gbest value is  0.62486982346382
+Iterate  18  gbest value is  0.625897177841782
+Iterate  19  gbest value is  0.625897177841782
+Selected_f1_micro:  0.6185286103542236
+Fold  2
+Full_f1_micro:  0.6557377049180328
+Iterate  0  gbest value is  -inf
+Iterate  1  gbest value is  0.599747410130829
+Iterate  2  gbest value is  0.6070216282641133
+Iterate  3  gbest value is  0.643330221096701
+Iterate  4  gbest value is  0.6583903917332413
+Iterate  5  gbest value is  0.6707106632417835
+Iterate  6  gbest value is  0.6807799030479442
+Iterate  7  gbest value is  0.7003837181273797
+Iterate  8  gbest value is  0.7003837181273797
+Iterate  9  gbest value is  0.7003837181273797
+Iterate  10  gbest value is  0.7003837181273797
+Iterate  11  gbest value is  0.7003837181273797
+Iterate  12  gbest value is  0.7003837181273797
+Iterate  13  gbest value is  0.7003837181273797
+Iterate  14  gbest value is  0.7012304417521588
+Iterate  15  gbest value is  0.7070595526635627
+Iterate  16  gbest value is  0.7070595526635627
+Iterate  17  gbest value is  0.7096529700989306
+Iterate  18  gbest value is  0.7161440473225086
+Iterate  19  gbest value is  0.7161440473225086
+Selected_f1_micro:  0.7153652392947103

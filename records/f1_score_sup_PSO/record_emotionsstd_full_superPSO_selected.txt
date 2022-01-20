@@ -1,0 +1,23 @@
+--------------Fold 1----------------
+Full feature f1 score micro: 0.6273
+Fold selected f1 score micro: 0.6106
+Time of PSO: 349.3100
+Selection ratio: 0.38
+Selected features: 2, 4, 6, 8, 15, 17, 20, 25, 28, 29, 33, 35, 37, 38, 40, 41, 44, 45, 46, 49, 55, 57, 60, 61, 63, 64, 67
+--------------Fold 2----------------
+Full feature f1 score micro: 0.6415
+Fold selected f1 score micro: 0.6584
+Time of PSO: 344.3100
+Selection ratio: 0.38
+Selected features: 0, 3, 6, 7, 9, 10, 13, 17, 18, 19, 20, 21, 23, 24, 25, 27, 32, 37, 38, 39, 46, 52, 55, 58, 59, 60, 71
+--------------Fold 3----------------
+Full feature f1 score micro: 0.6629
+Fold selected f1 score micro: 0.6316
+Time of PSO: 338.0300
+Selection ratio: 0.42
+Selected features: 0, 1, 2, 3, 5, 11, 15, 16, 17, 18, 21, 22, 23, 28, 33, 36, 37, 38, 40, 42, 44, 45, 48, 52, 57, 58, 60, 64, 65, 66
+--------------Average----------------
+Ave Full Accuracy: 0.6439
+Ave Selection Accuracy: 0.6336
+Ave time of PSO: 343.8833
+Ave Feature Ratio: 0.39

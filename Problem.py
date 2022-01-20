@@ -20,13 +20,13 @@ class Problem:
         return 1
 
     def is_better(self, first, second):
-        if self.minimize:
+        if self.minimize == True:
             return first < second
         else:
             return first > second
 
     def worst_fitness(self):
-        if self.minimize:
+        if self.minimize == True:
             return float('inf')
         else:
             return float('-inf')
@@ -128,10 +128,12 @@ class FS_ML_super_hl(Problem):
             X_train, X_test = X[train_idx], X[test_idx]
             y_train, y_test = y[train_idx], y[test_idx]
 
-            X_train_df, X_test_df, y_train_df, y_test_df = Util.Convert_to_df(X_train, X_test, y_train, y_test)
+            X_train_df, X_test_df, y_train_df, y_test_df = Util.Convert_to_df(
+                X_train, X_test, y_train, y_test)
             # y_s, subgroups, dict_clst_col = Super.label_convert(y_train_df, 2)
             # print(dict_clst_col)
-            y_test_pred, y_test = Super.calc_preds(X_train_df, y_train_df, X_test_df, y_test_df)
+            y_test_pred, y_test = Super.calc_preds(
+                X_train_df, y_train_df, X_test_df, y_test_df)
 
             ham = hamming_loss(y_test, y_test_pred)
             hamming_losses += ham
@@ -146,13 +148,14 @@ class FS_ML_super_hl(Problem):
         #     X_train_df, y_train_df, X_test_df, y_test_df)
         # ham = hamming_loss(y_test, y_test_pred)
         # return ham
-        
+
         # Super label PSO
-# Fitness is use super+sub classification f1 score micro 
+# Fitness is use super+sub classification f1 score micro
 # modified 0120 add no_cls
 
+
 class FS_ML_super(Problem):
-    
+
     def __init__(self, minimize, X, y, no_cls):
         self.minimize = minimize,
         self.X = X
@@ -167,21 +170,23 @@ class FS_ML_super(Problem):
         no_cls = self.no_cls  # modified 0120 add no_cls
         if len(feature_selected) == 0:
             return self.worst_fitness()
-        
+
         n_splits = 5
-        k_fold = IterativeStratification(n_splits=n_splits, order=1, random_state=42)
-            
+        k_fold = IterativeStratification(
+            n_splits=n_splits, order=1, random_state=42)
+
         f1_mics = 0
         for train_idx, test_idx in k_fold.split(X, y):
-            
+
             X_train, X_test = X[train_idx], X[test_idx]
             y_train, y_test = y[train_idx], y[test_idx]
 
-            X_train_df, X_test_df, y_train_df, y_test_df = Util.Convert_to_df(X_train, X_test, y_train, y_test)            
-            y_test_pred, y_test = Super.calc_preds(X_train_df, y_train_df, X_test_df, y_test_df, no_cls)
-            
-        
-            f1_mic = f1_score(y_test, y_test_pred, average = 'micro')
+            X_train_df, X_test_df, y_train_df, y_test_df = Util.Convert_to_df(
+                X_train, X_test, y_train, y_test)
+            y_test_pred, y_test = Super.calc_preds(
+                X_train_df, y_train_df, X_test_df, y_test_df, no_cls)
+
+            f1_mic = f1_score(y_test, y_test_pred, average='micro')
             f1_mics += f1_mic
-        
+
         return f1_mics/n_splits

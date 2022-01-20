@@ -77,7 +77,7 @@ class FS_ML_hl(Problem):
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
-        n_splits = 3
+        n_splits = 5
         clf = MLkNN(k=3)
         scaler_1 = StandardScaler()
         scaler_2 = MinMaxScaler()
@@ -123,7 +123,7 @@ class FS_ML_f1(Problem):
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
-        n_splits = 3
+        n_splits = 5
         clf = MLkNN(k=3)
         scaler_1 = StandardScaler()
         scaler_2 = MinMaxScaler()
@@ -212,7 +212,7 @@ class FS_ML_super_f1(Problem):
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
-        n_splits = 3
+        n_splits = 5
         k_fold = IterativeStratification(
             n_splits=n_splits, order=1, random_state=42)
 

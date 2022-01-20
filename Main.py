@@ -7,9 +7,9 @@ warnings.filterwarnings('ignore')
 # datasets_large = ['medical', 'enron', 'bibtex', 'Corel5k']
 # datasets_list = [datasets_small, datasets_medium, datasets_large]
 
-datasets_small = ['emotions']
-datasets_medium = ['yeast']
-datasets_large = ['medical']
+datasets_small = ['emotions', 'scene']
+datasets_medium = ['yeast', 'birds', 'genbase']
+datasets_large = ['medical', 'enron', 'bibtex', 'Corel5k']
 datasets_list = [datasets_small, datasets_medium, datasets_large]
 
 no_clses_small = 2

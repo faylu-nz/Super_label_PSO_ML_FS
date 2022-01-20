@@ -534,8 +534,8 @@ def full_std_sel_sup_f1(datasets_list, no_clses_list):
                     minimize=False, X=X_train, y=y_train, no_cls=no_cls)
 
                 # parameter for PSO
-                pop_size = 10
-                n_iterations = 20
+                pop_size = 30
+                n_iterations = 50
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol, best_fit = swarm.iterate()
@@ -569,7 +569,7 @@ def full_std_sel_sup_f1(datasets_list, no_clses_list):
             to_print += 'Ave time of PSO: %.4f\n' % np.average(PSO_durations)
             to_print += 'Ave Feature Ratio: %.2f\n' % np.average(f_ratios)
 
-            f = open('records/f1_score_sup_PSO/record_' +
+            f = open('records/f1_score_sup_PSO_more/record_' +
                      datasets[i] + 'std_full_superPSO_selected.txt', 'w')
             f.write(to_print)
             f.close()
@@ -593,7 +593,7 @@ def full_std_sel_std_f1(datasets_list):
             X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
             y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
 
-            n_splits = 3
+            n_splits = 5
             k_fold = IterativeStratification(
                 n_splits=n_splits, order=1, random_state=42)
 
@@ -634,8 +634,8 @@ def full_std_sel_std_f1(datasets_list):
                     minimize=False, X=X_train, y=y_train)
 
                 # parameter for PSO
-                pop_size = 10
-                n_iterations = 20
+                pop_size = 30
+                n_iterations = 50
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol, best_fit = swarm.iterate()
@@ -669,12 +669,12 @@ def full_std_sel_std_f1(datasets_list):
             to_print += 'Ave time of PSO: %.4f\n' % np.average(PSO_durations)
             to_print += 'Ave Feature Ratio: %.2f\n' % np.average(f_ratios)
 
-            f = open('records/f1_score_std_PSO/record_' +
+            f = open('records/f1_score_std_PSO_more/record_' +
                      datasets[i] + 'std_full_stdPSO_selected.txt', 'w')
             f.write(to_print)
             f.close()
-            
-            
+
+
 """
     Full features, standard classification vs super PSO selected features
     Hamming loss as metrics.
@@ -692,7 +692,7 @@ def full_std_sel_sup_hl(datasets_list, no_clses_list):
             X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
             y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
 
-            n_splits = 3
+            n_splits = 5
             k_fold = IterativeStratification(
                 n_splits=n_splits, order=1, random_state=42)
 
@@ -733,8 +733,8 @@ def full_std_sel_sup_hl(datasets_list, no_clses_list):
                     minimize=True, X=X_train, y=y_train, no_cls=no_cls)
 
                 # parameter for PSO
-                pop_size = 10
-                n_iterations = 20
+                pop_size = 30
+                n_iterations = 50
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol, best_fit = swarm.iterate()
@@ -768,7 +768,7 @@ def full_std_sel_sup_hl(datasets_list, no_clses_list):
             to_print += 'Ave time of PSO: %.4f\n' % np.average(PSO_durations)
             to_print += 'Ave Feature Ratio: %.2f\n' % np.average(f_ratios)
 
-            f = open('records/hamming_loss_sup_PSO/record_' +
+            f = open('records/hamming_loss_sup_PSO_more/record_' +
                      datasets[i] + '_std_full_superPSO_selected.txt', 'w')
             f.write(to_print)
             f.close()
@@ -791,7 +791,7 @@ def full_std_sel_std_hl(datasets_list):
             X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
             y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
 
-            n_splits = 3
+            n_splits = 5
             k_fold = IterativeStratification(
                 n_splits=n_splits, order=1, random_state=42)
 
@@ -832,8 +832,8 @@ def full_std_sel_std_hl(datasets_list):
                     minimize=True, X=X_train, y=y_train)
 
                 # parameter for PSO
-                pop_size = 10
-                n_iterations = 20
+                pop_size = 30
+                n_iterations = 50
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol, best_fit = swarm.iterate()
@@ -867,7 +867,7 @@ def full_std_sel_std_hl(datasets_list):
             to_print += 'Ave time of PSO: %.4f\n' % np.average(PSO_durations)
             to_print += 'Ave Feature Ratio: %.2f\n' % np.average(f_ratios)
 
-            f = open('records/hamming_loss_std_PSO/record_' +
+            f = open('records/hamming_loss_std_PSO_more/record_' +
                      datasets[i] + '_std_full_stdPSO_selected.txt', 'w')
             f.write(to_print)
             f.close()

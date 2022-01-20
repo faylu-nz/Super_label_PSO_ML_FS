@@ -1,6 +1,6 @@
 import numpy as np
 import pandas as pd
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.cluster import KMeans
 from skmultilearn.adapt import MLkNN
 import warnings
@@ -37,7 +37,7 @@ def convert(subgroup_label):
 def label_convert(y_train_, no_cls):  # Here y is dataframe
 
     subgroups = []
-    
+
     super_labels = []
     kmeans = KMeans(n_clusters=no_cls, random_state=0).fit(y_train_.T)
     # dictionary to record key(cluster index) and value(cluster columns)
@@ -78,12 +78,22 @@ def convert_index(X_train, X_test, y_train, y_test):
 
 # Get trained super_classifier
 
-def super_classifier(X_train_, y_train_):
+# Get trained super_classifier
+
+def super_classifier(X_train_, y_train_, no_cls):
 
     clf = MLkNN(k=3)
-    X_train_ = StandardScaler().fit_transform(X_train_)
-    y_s, subgroups, dict_clst_col = label_convert(y_train_, 4)
-    clf.fit(X_train_, y_s)
+
+    scaler_1 = StandardScaler()
+    scaler_2 = MinMaxScaler()
+    X_train_scaled_1 = scaler_1.fit_transform(X_train_)
+    X_train_scaled_2 = scaler_2.fit_transform(X_train_scaled_1)
+#     scaler = StandardScaler()
+#     X_train_ = scaler.fit_transform(X_train_)
+#     X_train_ = MinMaxScaler().fit_transform(X_train_)
+    y_s, subgroups, dict_clst_col = label_convert(y_train_, no_cls)
+    clf.fit(X_train_scaled_2, y_s)
+#     clf.fit(X_train_, y_s)
 
     return clf
 
@@ -129,13 +139,17 @@ def sub_classification is for each subgroup, train X_(X remove y_s's zero indexe
 
 # Get trained sub classifiers
 
-def sub_classifiers(X_train_, y_train_):
+def sub_classifiers(X_train_, y_train_, no_cls):
 
     clfs = []
+    n_sub_labelses = []
     # y_super labels, converted from original y labels (target)
-    y_s, subgroups, dict_clst_col = label_convert(y_train_, 4)
+    y_s, subgroups, dict_clst_col = label_convert(y_train_, no_cls)
     total_zeros = zeros(y_s)
-    scaler = StandardScaler()
+#     scaler = StandardScaler()
+#     scaler = MinMaxScaler()
+    scaler_1 = StandardScaler()
+    scaler_2 = MinMaxScaler()
     Xs = remove_zeros(X_train_, y_s)
 
     for subgroup, idx_zeros, X in zip(subgroups, total_zeros, Xs):
@@ -143,14 +157,19 @@ def sub_classifiers(X_train_, y_train_):
         # Drop all the zero instances, both in X and y, aka X_, y_
         y_ = subgroup.drop(idx_zeros)
         y_ = y_.drop(y_.columns[-1:], axis=1)  # Remove the s label
+        n_sub_labels = subgroup.shape[1]-1
+        n_sub_labelses.append(n_sub_labels)
 
-        X_ = scaler.fit_transform(X)
+        X_scaled_1 = scaler_1.fit_transform(X)
+        X_scaled_2 = scaler_2.fit_transform(X_scaled_1)
+#         X_ = scaler.fit_transform(X)
         clf = MLkNN(k=3)
-        clf.fit(X_, y_.to_numpy())
+#         clf.fit(X_, y_.to_numpy())
+        clf.fit(X_scaled_2, y_.to_numpy())
 
         clfs.append(clf)
 
-    return clfs
+    return clfs, n_sub_labelses
 
     """
 Now already gained clf, which is classifier for super classification, and clfs which are for all the sub-classifications. 
@@ -163,15 +182,21 @@ Apply clf, clfs, Xs on training set.
 
 
 def super_classification(clf_super, X_test_):
-    X_test_scaled = StandardScaler().fit_transform(X_test_)
-    # Predicted super labels, will be passed into def zeros().
-    y_test_s_pred = clf_super.predict(X_test_scaled).toarray()
+    #     scaler = StandardScaler()
+    scaler_1 = StandardScaler()
+    scaler_2 = MinMaxScaler()
+    X_test_scaled_1 = scaler_1.fit_transform(X_test_)
+    X_test_scaled_2 = scaler_2.fit_transform(X_test_scaled_1)
+#     X_test_scaled = scaler.fit_transform(X_test_)
+#     X_test_scaled = MinMaxScaler().fit_transform(X_test_)
+#     y_test_s_pred = clf_super.predict(X_test_scaled).toarray()   # Predicted super labels, will be passed into def zeros().
+    y_test_s_pred = clf_super.predict(X_test_scaled_2).toarray()
     return y_test_s_pred
 
 
 # Do sub-classification on sub-datasets (original X + subgroup original labels)
 
-def sub_classification(clfs, X_test_, y_test_s_pred):
+def sub_classification(clfs, n_sub_labelses, X_test_, y_test_s_pred):
 
     # Based on predicted super label, compute which are zeros in each subgroup
     total_test_zeros = zeros(y_test_s_pred)
@@ -180,12 +205,23 @@ def sub_classification(clfs, X_test_, y_test_s_pred):
     X_tests = remove_zeros(X_test_, y_test_s_pred)
 
     y_test_sub_preds = []
-    scaler = StandardScaler()
-
+#     scaler = StandardScaler()
+#     scaler = MinMaxScaler()
+    scaler_1 = StandardScaler()
+    scaler_2 = MinMaxScaler()
     for clf, X_test in zip(clfs, X_tests):
-        X_scalered = scaler.fit_transform(X_test)
-        y_test_sub_pred = clf.predict(X_scalered)
-        y_test_sub_preds.append(y_test_sub_pred)
+        # based on corrrespanding y_s_pred column, the y_labels in column are all zeros
+        if len(X_test.axes[0]) == 0:
+            # so when remove zeros in X_test, n_rowsof X-test is 0, aka no intances to predict
+            y_test_sub_pred = None
+            y_test_sub_preds.append(y_test_sub_pred)
+        else:
+            #             X_scaled = scaler.fit_transform(X_test)
+            X_scaled_1 = scaler_1.fit_transform(X_test)
+            X_scaled_2 = scaler_2.fit_transform(X_scaled_1)
+#             y_test_sub_pred = clf.predict(X_scaled)   # y_test_sub_pred is sparse matrix
+            y_test_sub_pred = clf.predict(X_scaled_2)
+            y_test_sub_preds.append(y_test_sub_pred)
 
     # total_test_zeros, y_test_sub_labels are lists
     return total_test_zeros, y_test_sub_preds
@@ -208,30 +244,38 @@ That is how many labels in each y_sub_pred
 # Fill out zeros back into each y_sub_pred
 
 
-def fill_zeros(total_test_zeros, y_test_sub_preds, y_test_):
+def fill_zeros(total_test_zeros, y_test_sub_preds, y_test_, n_sub_labelses):
     total_filled_preds = []
 
-    for i in range(len(total_test_zeros)):   # columns
+    for i in range(len(total_test_zeros)):   # number of columns of y_super
         labels = []
-        y_test_sub_pred = y_test_sub_preds[i].toarray()
-        no_sublabels = y_test_sub_pred.shape[1]
-        for j in range(y_test_.shape[0]):   # original y_test's rows
-            if j in total_test_zeros[i]:
-                labels.append(np.zeros(no_sublabels, dtype=np.int64))
-            else:
-                label = y_test_sub_pred[0]
-                labels.append(label)
-                y_test_sub_pred = np.delete(y_test_sub_pred, [0], axis=0)
+        if y_test_sub_preds[i] == None:
+            for j in range(y_test_.shape[0]):
+                # Create all zero list, then list of list, append
+                labels.append(np.zeros(n_sub_labelses[i], dtype=np.int64))
+        else:
+            # y_test_sub_pred is sparse matrix, convert to nparray
+            y_test_sub_pred_np = y_test_sub_preds[i].toarray()
+            no_sublabels = y_test_sub_pred_np.shape[1]
+            for j in range(y_test_.shape[0]):   # original y_test's rows
+                if j in total_test_zeros[i]:
+                    labels.append(np.zeros(no_sublabels, dtype=np.int64))
+                else:
+                    label = y_test_sub_pred_np[0]
+                    labels.append(label)
+                    y_test_sub_pred_np = np.delete(
+                        y_test_sub_pred_np, [0], axis=0)
         total_filled_preds.append(labels)
 
     return total_filled_preds
 
 
 # sort the order of y_test_preds, aka revert to original order as y_test's columns(before clustering)
+# Clusters are not neccessarily equal, so could convert total_filled_preds to np.array
 
-def sort_preds(total_filled_preds, y_train_):
+def sort_preds(total_filled_preds, y_train_, no_cls):
 
-    y_s, subgroup, dict_clst_col = label_convert(y_train_, 4)
+    y_s, subgroup, dict_clst_col = label_convert(y_train_, no_cls)
     y_test_sub_preds = []
     for i in range(len(total_filled_preds)):
         np_total_filled_pred = np.array(total_filled_preds[i])
@@ -247,18 +291,18 @@ def sort_preds(total_filled_preds, y_train_):
 
 # Based on splited X_train, y_train, calculate the y_test_pred on x_test
 
-def calc_preds(X_train, y_train, X_test, y_test):
+def calc_preds(X_train, y_train, X_test, y_test, no_cls):
 
     X_train_, X_test_, y_train_, y_test_ = convert_index(
         X_train, X_test, y_train, y_test)
 
-    clf_super = super_classifier(X_train_, y_train_)
-    clfs_sub = sub_classifiers(X_train_, y_train_)
+    clf_super = super_classifier(X_train_, y_train_, no_cls)
+    clfs_sub, n_sub_labelses = sub_classifiers(X_train_, y_train_, no_cls)
     y_test_s_pred = super_classification(clf_super, X_test_)
     total_test_zeros, y_test_sub_preds = sub_classification(
-        clfs_sub, X_test_, y_test_s_pred)
+        clfs_sub, n_sub_labelses, X_test_, y_test_s_pred)
     total_filled_preds = fill_zeros(
-        total_test_zeros, y_test_sub_preds, y_test_)
-    y_test_pred_sorted = sort_preds(total_filled_preds, y_train_)
+        total_test_zeros, y_test_sub_preds, y_test_, n_sub_labelses)
+    y_test_pred_sorted = sort_preds(total_filled_preds, y_train_, no_cls)
 
     return y_test_pred_sorted, y_test_

@@ -13,7 +13,7 @@ class Particle:
         self.c2 = c2
         self.problem = problem
 
-        self.position = np.random.rand(length)*(pos_max-pos_min)
+        self.position = pos_min + np.random.rand(length)*(pos_max-pos_min)
         self.velocity = np.zeros(length)
         self.fitness = self.problem.worst_fitness()
 

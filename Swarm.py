@@ -21,7 +21,7 @@ class Swarm:
     def iterate(self):
 
         for i in range(self.n_iterations):
-            
+            new_w = 0.9 - i * (0.9 - 0.4) / self.n_iterations
             print('Iterate ', i, end = '  ')
             gbest_fit = self.population[0].gbest_fit
             gbest_index = 0
@@ -30,6 +30,7 @@ class Swarm:
             
             for index, particle in enumerate(self.population):
                 # Evaluate each particle, update pbest
+                particle.w = new_w
                 particle.fitness = self.problem.fitness(particle.position)
 
                 if self.problem.is_better(particle.fitness, particle.pbest_fit):

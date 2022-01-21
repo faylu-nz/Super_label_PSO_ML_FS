@@ -214,7 +214,7 @@ class FS_ML_super_f1(Problem):
 
         n_splits = 5
         k_fold = IterativeStratification(
-            n_splits=n_splits, order=1, random_state=42)
+            n_splits=n_splits, order=1)
 
         f1_mics = 0
         for train_idx, test_idx in k_fold.split(X, y):

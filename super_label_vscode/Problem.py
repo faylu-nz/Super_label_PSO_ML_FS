@@ -1,4 +1,5 @@
 import Super
+import Super_simple
 import Util
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier as KNN
@@ -228,6 +229,45 @@ class FS_ML_super_f1(Problem):
                 X_train_df, y_train_df, X_test_df, y_test_df, no_cls)
 
             f1_mic = f1_score(y_test, y_test_pred, average='micro')
+            f1_mics += f1_mic
+
+        return f1_mics/n_splits
+
+
+class FS_ML_super_simple_f1(Problem):
+
+    def __init__(self, minimize, X, y, no_cls):
+        self.minimize = minimize,
+        self.X = X
+        self.y = y
+        self.no_cls = no_cls   # modified 0120 add no_cls
+        self.threshold = 0.6
+
+    def fitness(self, solution):
+        feature_selected = np.where(solution > self.threshold)[0]
+        X = self.X[:, feature_selected]
+        y = self.y
+        no_cls = self.no_cls
+        y_s = Super_simple.label_convert_simple(y, no_cls)
+        if len(feature_selected) == 0:
+            return self.worst_fitness()
+
+        n_splits = 5
+        k_fold = IterativeStratification(
+            n_splits=n_splits, order=1)
+
+        f1_mics = 0
+        for train_idx, test_idx in k_fold.split(X, y_s):
+
+            X_train, X_test = X[train_idx], X[test_idx]
+            y_train_s, y_test_s = y[train_idx], y[test_idx]
+
+            clf_super = Super_simple.super_classifier(
+                X_train, y_train_s, no_cls)
+            y_test_s_pred = Super_simple.super_classification(
+                clf_super, X_test)
+
+            f1_mic = f1_score(y_test_s, y_test_s_pred, average='micro')
             f1_mics += f1_mic
 
         return f1_mics/n_splits

@@ -4,16 +4,15 @@ import Util
 import Super
 import numpy as np
 import pandas as pd
-from sklearn.metrics import hamming_loss
-from sklearn.metrics import f1_score
+from sklearn.metrics import hamming_loss, f1_score
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from skmultilearn.adapt import MLkNN
 from skmultilearn.model_selection import IterativeStratification
 from skmultilearn.dataset import load_dataset
-
 import time
 import warnings
 warnings.filterwarnings('ignore')
+
 
 """
 Standard classification with full features vs Super classification with full features.
@@ -880,7 +879,7 @@ Running on grid.
 """
 
 
-def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list):
+def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list, run):
     from sklearn.metrics import f1_score
     for datasets, no_cls in zip(datasets_list, no_clses_list):
         for i in range(len(datasets)):
@@ -892,7 +891,7 @@ def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list):
             X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
             y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
 
-            n_splits = 5
+            n_splits = 3
             k_fold = IterativeStratification(
                 n_splits=n_splits, order=1, random_state=42)
 
@@ -936,8 +935,8 @@ def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list):
                     minimize=False, X=X_train, y=y_train)
 
                 # parameter for standard PSO
-                pop_size = 100
-                n_iterations = 100
+                pop_size = 3
+                n_iterations = 5
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol_std, best_fit_std = swarm.iterate()
@@ -961,8 +960,8 @@ def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list):
                     minimize=False, X=X_train, y=y_train, no_cls=no_cls)
 
                 # parameter for PSO
-                pop_size = 100
-                n_iterations = 100
+                pop_size = 3
+                n_iterations = 5
                 swarm = Swarm.Swarm(n_particles=pop_size, length=n_features, pos_max=1.0, pos_min=0,
                                     vel_max=0.2, vel_min=-0.2, problem=problem, n_iterations=n_iterations)
                 best_sol_sup, best_fit_sup = swarm.iterate()
@@ -1011,13 +1010,14 @@ def full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list):
             to_print += 'Ave Super PSO Feature Ratio: %.2f\n' % np.average(
                 f_sup_ratios)
 
+            # f = open(datasets[i] + str(run) + '_std_full_superPSO_selected.txt', 'w')
             f = open('records/f1_score_full_std_sup_PSO_comparison/record_' +
-                     datasets[i] + 'std_full_superPSO_selected.txt', 'w')
+                     datasets[i] + str(run) + 'std_full_superPSO_selected.txt', 'w')
             f.write(to_print)
             f.close()
 
 
-def full_std_PSOsel_std_supsimple_f1(datasets_list, no_clses_list):
+def full_std_PSOsel_std_supsimple_f1(datasets_list, no_clses_list, run):
     from sklearn.metrics import f1_score
     for datasets, no_cls in zip(datasets_list, no_clses_list):
         for i in range(len(datasets)):
@@ -1029,7 +1029,7 @@ def full_std_PSOsel_std_supsimple_f1(datasets_list, no_clses_list):
             X = pd.DataFrame.sparse.from_spmatrix(X).to_numpy()
             y = pd.DataFrame.sparse.from_spmatrix(y).to_numpy()
 
-            n_splits = 5
+            n_splits = 3
             k_fold = IterativeStratification(
                 n_splits=n_splits, order=1, random_state=42)
 
@@ -1121,34 +1121,36 @@ def full_std_PSOsel_std_supsimple_f1(datasets_list, no_clses_list):
                 to_print += '--------------Fold %d----------------\n' % fold_count
                 to_print += 'Full feature f1 score micro: %.4f\n' % full_f1_mic
                 to_print += 'Fold selected standard PSO f1 score micro: %.4f\n' % sel_std_f1_mic
-                to_print += 'Fold selected super PSO f1 score micro: %.4f\n' % sel_sup_f1_mic
+                to_print += 'Fold selected super simple PSO f1 score micro: %.4f\n' % sel_sup_f1_mic
                 to_print += 'Time of standard PSO: %.4f\n' % duration_std_PSO
-                to_print += 'Time of super PSO: %.4f\n' % duration_sup_PSO
+                to_print += 'Time of super simple PSO: %.4f\n' % duration_sup_PSO
                 to_print += 'Selection standard PSO ratio: %.2f\n' % (
                     len(sel_fea_std)/n_features)
-                to_print += 'Selection super PSO ratio: %.2f\n' % (
+                to_print += 'Selection super simple PSO ratio: %.2f\n' % (
                     len(sel_fea_sup)/n_features)
                 to_print += 'Selected features standard PSO: %s\n' % (
                     ', '.join([str(ele) for ele in sel_fea_std]))
-                to_print += 'Selected features super PSO: %s\n' % (
+                to_print += 'Selected features super simple PSO: %s\n' % (
                     ', '.join([str(ele) for ele in sel_fea_sup]))
 
             to_print += '--------------Average----------------\n'
             to_print += 'Ave Full Accuracy: %.4f\n' % np.average(full_f1_mics)
             to_print += 'Ave Standard PSO Selection Accuracy: %.4f\n' % np.average(
                 sel_std_f1_mics)
-            to_print += 'Ave Super PSO Selection Accuracy: %.4f\n' % np.average(
+            to_print += 'Ave Super simple PSO Selection Accuracy: %.4f\n' % np.average(
                 sel_sup_f1_mics)
             to_print += 'Ave time of Standard PSO: %.4f\n' % np.average(
                 PSO_std_durations)
-            to_print += 'Ave time of Super PSO: %.4f\n' % np.average(
+            to_print += 'Ave time of Super simple PSO: %.4f\n' % np.average(
                 PSO_sup_durations)
             to_print += 'Ave Standard PSO Feature Ratio: %.2f\n' % np.average(
                 f_std_ratios)
-            to_print += 'Ave Super PSO Feature Ratio: %.2f\n' % np.average(
+            to_print += 'Ave Super simple PSO Feature Ratio: %.2f\n' % np.average(
                 f_sup_ratios)
 
+            # f = open(datasets[i] + str(run) + '_std_full_superPSO_selected.txt', 'w')
             f = open('records/f1_score_full_std_supsimple_PSO_comparison/record_' +
-                     datasets[i] + 'std_full_superPSO_selected.txt', 'w')
+                     datasets[i] + str(run) + '_std_full_superPSO_selected.txt', 'w')
+
             f.write(to_print)
             f.close()

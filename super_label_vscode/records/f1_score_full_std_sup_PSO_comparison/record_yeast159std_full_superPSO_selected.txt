@@ -1,0 +1,38 @@
+--------------Fold 1----------------
+Full feature f1 score micro: 0.6200
+Fold selected standard PSO f1 score micro: 0.6149
+Fold selected super PSO f1 score micro: 0.5850
+Time of standard PSO: 91.0500
+Time of super PSO: 171.5900
+Selection standard PSO ratio: 0.50
+Selection super PSO ratio: 0.38
+Selected features standard PSO: 4, 7, 8, 9, 10, 13, 14, 16, 23, 26, 27, 28, 29, 30, 36, 40, 42, 46, 48, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 63, 64, 66, 69, 71, 72, 76, 77, 78, 80, 82, 84, 86, 88, 89, 91, 92, 95, 99, 101, 102
+Selected features super PSO: 1, 4, 9, 10, 11, 17, 19, 23, 25, 30, 31, 32, 34, 35, 36, 39, 40, 43, 44, 45, 49, 50, 51, 53, 56, 62, 64, 72, 73, 74, 76, 80, 82, 85, 87, 92, 95, 97, 102
+--------------Fold 2----------------
+Full feature f1 score micro: 0.6241
+Fold selected standard PSO f1 score micro: 0.5753
+Fold selected super PSO f1 score micro: 0.6082
+Time of standard PSO: 87.7600
+Time of super PSO: 171.1200
+Selection standard PSO ratio: 0.39
+Selection super PSO ratio: 0.47
+Selected features standard PSO: 2, 6, 8, 9, 11, 13, 17, 19, 25, 26, 28, 34, 35, 36, 42, 43, 44, 46, 48, 56, 57, 58, 61, 64, 68, 72, 74, 75, 76, 78, 83, 84, 87, 88, 90, 92, 94, 95, 98, 99
+Selected features super PSO: 0, 4, 5, 7, 8, 13, 17, 18, 19, 20, 22, 30, 31, 34, 36, 37, 40, 41, 43, 45, 47, 49, 50, 56, 58, 62, 63, 64, 66, 67, 68, 69, 72, 74, 78, 81, 82, 83, 88, 90, 91, 94, 95, 96, 97, 98, 99, 102
+--------------Fold 3----------------
+Full feature f1 score micro: 0.6204
+Fold selected standard PSO f1 score micro: 0.6106
+Fold selected super PSO f1 score micro: 0.6115
+Time of standard PSO: 90.5300
+Time of super PSO: 202.3900
+Selection standard PSO ratio: 0.34
+Selection super PSO ratio: 0.41
+Selected features standard PSO: 3, 4, 7, 13, 16, 22, 23, 29, 33, 34, 39, 42, 45, 49, 52, 53, 55, 57, 59, 61, 62, 63, 66, 72, 74, 78, 80, 81, 83, 85, 87, 88, 92, 99, 101
+Selected features super PSO: 0, 2, 6, 8, 11, 13, 18, 19, 20, 29, 30, 39, 41, 44, 45, 46, 47, 48, 49, 51, 52, 53, 54, 60, 61, 62, 64, 66, 67, 68, 71, 73, 75, 83, 84, 86, 87, 88, 89, 91, 100, 102
+--------------Average----------------
+Ave Full Accuracy: 0.6215
+Ave Standard PSO Selection Accuracy: 0.6003
+Ave Super PSO Selection Accuracy: 0.6015
+Ave time of Standard PSO: 89.7800
+Ave time of Super PSO: 181.7000
+Ave Standard PSO Feature Ratio: 0.41
+Ave Super PSO Feature Ratio: 0.42

@@ -1,0 +1,38 @@
+--------------Fold 1----------------
+Full feature f1 score micro: 0.6200
+Fold selected standard PSO f1 score micro: 0.6149
+Fold selected super simple PSO f1 score micro: 0.5941
+Time of standard PSO: 79.9200
+Time of super simple PSO: 80.5700
+Selection standard PSO ratio: 0.50
+Selection super simple PSO ratio: 0.44
+Selected features standard PSO: 4, 7, 8, 9, 10, 13, 14, 16, 23, 26, 27, 28, 29, 30, 36, 40, 42, 46, 48, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 63, 64, 66, 69, 71, 72, 76, 77, 78, 80, 82, 84, 86, 88, 89, 91, 92, 95, 99, 101, 102
+Selected features super simple PSO: 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 19, 22, 24, 26, 30, 31, 35, 37, 38, 40, 43, 49, 50, 53, 55, 56, 58, 61, 65, 66, 70, 71, 72, 73, 76, 79, 80, 83, 84, 87, 88, 94, 101
+--------------Fold 2----------------
+Full feature f1 score micro: 0.6241
+Fold selected standard PSO f1 score micro: 0.5953
+Fold selected super simple PSO f1 score micro: 0.6037
+Time of standard PSO: 80.3700
+Time of super simple PSO: 75.9700
+Selection standard PSO ratio: 0.39
+Selection super simple PSO ratio: 0.40
+Selected features standard PSO: 1, 5, 8, 9, 11, 12, 13, 14, 16, 17, 22, 26, 27, 29, 33, 34, 38, 42, 48, 50, 51, 58, 59, 61, 62, 64, 73, 77, 79, 80, 82, 85, 87, 88, 89, 90, 92, 97, 98, 100
+Selected features super simple PSO: 1, 2, 6, 9, 14, 18, 23, 31, 32, 34, 36, 38, 43, 44, 45, 47, 49, 50, 55, 56, 59, 61, 63, 65, 67, 68, 70, 74, 76, 77, 80, 82, 83, 84, 91, 93, 95, 97, 98, 99, 100
+--------------Fold 3----------------
+Full feature f1 score micro: 0.6204
+Fold selected standard PSO f1 score micro: 0.6032
+Fold selected super simple PSO f1 score micro: 0.6212
+Time of standard PSO: 79.3500
+Time of super simple PSO: 80.0000
+Selection standard PSO ratio: 0.43
+Selection super simple PSO ratio: 0.41
+Selected features standard PSO: 3, 5, 6, 8, 9, 11, 12, 16, 17, 18, 20, 22, 25, 29, 31, 32, 35, 38, 39, 42, 45, 46, 48, 53, 57, 59, 60, 62, 63, 66, 67, 68, 72, 73, 76, 82, 84, 85, 86, 87, 89, 96, 97, 100
+Selected features super simple PSO: 0, 5, 8, 13, 14, 17, 21, 22, 29, 35, 36, 38, 39, 41, 44, 45, 46, 49, 53, 54, 56, 57, 60, 64, 66, 70, 72, 74, 75, 78, 79, 81, 82, 83, 88, 92, 94, 97, 98, 99, 100, 101
+--------------Average----------------
+Ave Full Accuracy: 0.6215
+Ave Standard PSO Selection Accuracy: 0.6045
+Ave Super simple PSO Selection Accuracy: 0.6063
+Ave time of Standard PSO: 79.8800
+Ave time of Super simple PSO: 78.8467
+Ave Standard PSO Feature Ratio: 0.44
+Ave Super simple PSO Feature Ratio: 0.41

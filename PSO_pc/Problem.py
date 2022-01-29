@@ -3,8 +3,7 @@ import Super_simple
 import Util
 import numpy as np
 from sklearn.neighbors import KNeighborsClassifier as KNN
-from sklearn.metrics import accuracy_score, hamming_loss
-from sklearn.metrics import f1_score
+from sklearn.metrics import accuracy_score, hamming_loss, f1_score
 from sklearn.preprocessing import StandardScaler, MinMaxScaler
 from sklearn.model_selection import train_test_split
 from skmultilearn.adapt import MLkNN
@@ -193,8 +192,6 @@ class FS_ML_super_hl(Problem):
 
 # Super label PSO
 # Fitness is use super+sub classification f1 score micro
-# modified 0120 add no_cls
-
 
 class FS_ML_super_f1(Problem):
 
@@ -202,14 +199,14 @@ class FS_ML_super_f1(Problem):
         self.minimize = minimize,
         self.X = X
         self.y = y
-        self.no_cls = no_cls   # modified 0120 add no_cls
+        self.no_cls = no_cls
         self.threshold = 0.6
 
     def fitness(self, solution):
         feature_selected = np.where(solution > self.threshold)[0]
         X = self.X[:, feature_selected]
         y = self.y
-        no_cls = self.no_cls  # modified 0120 add no_cls
+        no_cls = self.no_cls
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
@@ -234,13 +231,16 @@ class FS_ML_super_f1(Problem):
         return f1_mics/n_splits
 
 
+# Super simple label PSO
+# Fitness is use super classification only, f1 score micro
+
 class FS_ML_super_simple_f1(Problem):
 
     def __init__(self, minimize, X, y, no_cls):
         self.minimize = minimize,
         self.X = X
         self.y = y
-        self.no_cls = no_cls   # modified 0120 add no_cls
+        self.no_cls = no_cls
         self.threshold = 0.6
 
     def fitness(self, solution):
@@ -248,26 +248,22 @@ class FS_ML_super_simple_f1(Problem):
         X = self.X[:, feature_selected]
         y = self.y
         no_cls = self.no_cls
-        y_s = Super_simple.label_convert_simple(y, no_cls)
+
         if len(feature_selected) == 0:
             return self.worst_fitness()
-
         n_splits = 5
         k_fold = IterativeStratification(
             n_splits=n_splits, order=1)
-
         f1_mics = 0
-        for train_idx, test_idx in k_fold.split(X, y_s):
 
+        # Here y is y_s, already converted when Problem initialization
+        for train_idx, test_idx in k_fold.split(X, y):
             X_train, X_test = X[train_idx], X[test_idx]
             y_train_s, y_test_s = y[train_idx], y[test_idx]
-
             clf_super = Super_simple.super_classifier(
-                X_train, y_train_s, no_cls)
+                X_train, y_train_s)
             y_test_s_pred = Super_simple.super_classification(
                 clf_super, X_test)
-
             f1_mic = f1_score(y_test_s, y_test_s_pred, average='micro')
             f1_mics += f1_mic
-
         return f1_mics/n_splits

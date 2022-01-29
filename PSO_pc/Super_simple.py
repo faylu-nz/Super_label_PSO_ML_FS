@@ -10,18 +10,15 @@ warnings.filterwarnings('ignore')
 """
 In each subcgroup(cluster), get label indexes
 """
-
-
 def ClusterIndicesNumpy(clustNum, labels_array):  # numpy
     return np.where(labels_array == clustNum)[0]
 
-    """
+
+
+"""
 Convert each subgroup's labels(binary nparray) into super label(list)
 If all labels are 0, super label is 0; otherwise, super label is assigned to 1
-
-    """
-
-
+"""
 def convert(subgroup_label):
     super_ = []
     subgroup_label_array = subgroup_label.to_numpy()
@@ -37,12 +34,12 @@ def convert(subgroup_label):
     return super_
 
 
+
+
 """
 Convert original y labels into y_super labels
 subgroup_labels are dataframe with original labels + super labels
 """
-
-
 def label_convert_simple(y, no_cls):  # Here y is ndarray, need to convert to df
 
     super_labels = []
@@ -64,15 +61,14 @@ def label_convert_simple(y, no_cls):  # Here y is ndarray, need to convert to df
 
     return y_s
 
-    """
+
+
+"""
 Get trained super_classifier
-    """
-
-
-def super_classifier(X_train, y_train_s, no_cls):
+"""
+def super_classifier(X_train, y_train_s):
 
     clf_super = MLkNN(k=3)
-
     scaler_1 = StandardScaler()
     scaler_2 = MinMaxScaler()
     X_train_scaled_1 = scaler_1.fit_transform(X_train)
@@ -81,14 +77,11 @@ def super_classifier(X_train, y_train_s, no_cls):
 
     return clf_super
 
-    """
+
+
+"""
 Do super classification on dataset
-
-    """
-    """[summary]
-    """
-
-
+"""
 def super_classification(clf_super, X_test):
 
     scaler_1 = StandardScaler()
@@ -96,5 +89,6 @@ def super_classification(clf_super, X_test):
     X_test_scaled_1 = scaler_1.fit_transform(X_test)
     X_test_scaled_2 = scaler_2.fit_transform(X_test_scaled_1)
     y_test_s_pred = clf_super.predict(X_test_scaled_2).toarray()
-
     return y_test_s_pred
+    
+    

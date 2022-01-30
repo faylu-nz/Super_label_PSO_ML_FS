@@ -1,0 +1,50 @@
+--------------Fold 1----------------
+Full feature f1 score micro: 0.4123
+Fold selected standard PSO f1 score micro: 0.4157
+Fold selected super simple PSO f1 score micro: 0.3463
+Full feature f1 score macro: 0.3010
+Fold selected standard PSO f1 score macro: 0.2946
+Fold selected super simple PSO f1 score macro: 0.2210
+Time of standard PSO: 30.6900
+Time of super simple PSO: 14.5500
+Selection standard PSO ratio: 0.45
+Selection super simple PSO ratio: 0.39
+Selected features standard PSO: 0, 4, 6, 8, 9, 12, 14, 15, 16, 21, 24, 25, 28, 30, 35, 37, 39, 41, 43, 46, 52, 54, 57, 59, 60, 62, 63, 65, 66, 69, 70, 73, 79, 82, 83, 85, 86, 92, 93, 94, 95, 97, 98, 101, 102, 104, 105, 107, 111, 114, 116, 118, 119, 120, 123, 128, 131, 133, 135, 136, 138, 142, 143, 144, 150, 151, 155, 160, 161, 163, 164, 165, 167, 168, 170, 171, 172, 176, 179, 185, 189, 190, 192, 193, 194, 195, 196, 201, 202, 203, 211, 213, 214, 216, 218, 219, 221, 227, 228, 230, 232, 233, 234, 237, 239, 241, 246, 247, 248, 250, 253, 254, 256, 257, 258, 259
+Selected features super simple PSO: 0, 2, 5, 6, 10, 11, 13, 20, 21, 23, 24, 26, 27, 29, 34, 41, 49, 50, 51, 53, 54, 59, 62, 63, 66, 67, 72, 74, 78, 79, 80, 82, 84, 85, 87, 94, 97, 98, 101, 102, 103, 105, 106, 108, 110, 112, 114, 115, 118, 121, 126, 132, 134, 135, 137, 139, 142, 143, 145, 151, 152, 155, 157, 161, 163, 167, 173, 174, 175, 177, 178, 179, 180, 182, 184, 193, 197, 211, 212, 213, 214, 215, 218, 224, 228, 229, 230, 234, 235, 236, 237, 241, 242, 243, 244, 246, 248, 249, 254, 257, 258
+--------------Fold 2----------------
+Full feature f1 score micro: 0.4784
+Fold selected standard PSO f1 score micro: 0.3761
+Fold selected super simple PSO f1 score micro: 0.3529
+Full feature f1 score macro: 0.3775
+Fold selected standard PSO f1 score macro: 0.2602
+Fold selected super simple PSO f1 score macro: 0.2353
+Time of standard PSO: 31.5700
+Time of super simple PSO: 14.7100
+Selection standard PSO ratio: 0.37
+Selection super simple PSO ratio: 0.33
+Selected features standard PSO: 3, 4, 5, 7, 9, 12, 16, 26, 28, 29, 30, 31, 33, 36, 37, 40, 50, 51, 52, 54, 55, 57, 58, 59, 61, 65, 67, 68, 73, 75, 79, 80, 87, 88, 89, 95, 96, 104, 107, 119, 120, 121, 126, 127, 131, 133, 135, 136, 138, 143, 144, 145, 149, 151, 152, 154, 155, 156, 159, 164, 166, 168, 169, 172, 175, 176, 177, 180, 181, 182, 185, 186, 191, 193, 194, 197, 199, 202, 205, 206, 208, 209, 212, 215, 216, 218, 219, 222, 223, 224, 228, 233, 234, 236, 243, 252, 259
+Selected features super simple PSO: 0, 1, 5, 6, 10, 12, 13, 16, 22, 25, 31, 34, 37, 48, 50, 51, 53, 58, 59, 60, 61, 62, 66, 69, 74, 79, 83, 84, 86, 87, 90, 94, 96, 102, 104, 105, 106, 109, 116, 117, 119, 122, 126, 134, 135, 138, 140, 144, 148, 150, 153, 156, 160, 168, 171, 173, 174, 179, 182, 183, 194, 198, 199, 200, 205, 210, 212, 214, 220, 221, 222, 223, 224, 227, 228, 233, 235, 237, 240, 241, 243, 244, 245, 248, 253, 257, 258
+--------------Fold 3----------------
+Full feature f1 score micro: 0.4551
+Fold selected standard PSO f1 score micro: 0.4073
+Fold selected super simple PSO f1 score micro: 0.4523
+Full feature f1 score macro: 0.3286
+Fold selected standard PSO f1 score macro: 0.2877
+Fold selected super simple PSO f1 score macro: 0.3651
+Time of standard PSO: 30.3700
+Time of super simple PSO: 14.8700
+Selection standard PSO ratio: 0.34
+Selection super simple PSO ratio: 0.37
+Selected features standard PSO: 2, 3, 4, 6, 7, 15, 17, 20, 21, 22, 28, 31, 34, 36, 38, 41, 42, 44, 45, 46, 49, 52, 54, 56, 61, 62, 64, 65, 66, 67, 72, 77, 79, 83, 91, 92, 96, 98, 102, 106, 107, 111, 113, 115, 116, 117, 125, 126, 133, 136, 137, 138, 145, 149, 150, 160, 165, 166, 167, 170, 171, 173, 180, 183, 185, 186, 188, 191, 197, 199, 200, 202, 215, 223, 225, 226, 227, 230, 231, 232, 233, 235, 237, 243, 248, 252, 257, 259
+Selected features super simple PSO: 0, 2, 3, 6, 9, 12, 14, 17, 24, 25, 26, 31, 32, 37, 38, 41, 47, 52, 54, 59, 60, 63, 64, 69, 72, 73, 76, 78, 82, 84, 85, 86, 88, 91, 93, 94, 97, 100, 101, 102, 106, 113, 115, 117, 120, 122, 123, 124, 126, 127, 128, 130, 131, 132, 143, 145, 149, 150, 151, 153, 162, 168, 170, 171, 173, 176, 177, 182, 185, 188, 191, 194, 196, 197, 200, 201, 202, 203, 209, 211, 216, 217, 218, 219, 222, 225, 230, 235, 242, 245, 246, 247, 248, 249, 251, 254, 259
+--------------Average----------------
+Ave Full Accuracy micro: 0.4486
+Ave Standard PSO Selection Accuracy micro: 0.3997
+Ave Super simple PSO Selection Accuracy  micro: 0.3838
+Ave Full Accuracy macro: 0.3357
+Ave Standard PSO Selection Accuracy macro: 0.2808
+Ave Super simple PSO Selection Accuracy macro: 0.2738
+Ave time of Standard PSO: 30.8767
+Ave time of Super simple PSO: 14.7100
+Ave Standard PSO Feature Ratio: 0.39
+Ave Super simple PSO Feature Ratio: 0.37

@@ -1228,7 +1228,7 @@ def fullstd_PSOsel_std_sup_simple_f1(datasets_list, no_clses_list, run):
             f.close()
 
 
-def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir, seed):
+def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir):
     from sklearn.metrics import f1_score
     for datasets, no_cls in zip(datasets_list, no_clses_list):
         for i in range(len(datasets)):
@@ -1240,7 +1240,7 @@ def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir, seed
 
             n_splits = 3
             k_fold = IterativeStratification(
-                n_splits=n_splits, order=1, random_state=seed)
+                n_splits=n_splits, order=1)
 
             full_f1_mics = []
             full_f1_macs = []
@@ -1289,7 +1289,7 @@ def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir, seed
                 #  perform standard PSO FS
                 start_std_PSO = time.time_ns()    # marking start time of PSO
                 problem_std = Problem.FS_ML_f1(
-                    minimize=False, X=X_train, y=y_train, seed=seed)
+                    minimize=False, X=X_train, y=y_train)
 
                 pop_size = 3
                 n_iterations = 5
@@ -1318,7 +1318,7 @@ def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir, seed
                 y_train_s = Super_simple.label_convert_simple(
                     y_train, no_cls)   # Convert y_train
                 problem_sim = Problem.FS_ML_super_simple_f1(
-                    minimize=False, X=X_train, y=y_train_s, no_cls=no_cls, seed=seed)
+                    minimize=False, X=X_train, y=y_train_s, no_cls=no_cls)
 
                 pop_size = 3
                 n_iterations = 5
@@ -1394,7 +1394,7 @@ def fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run, outDir, seed
             f.close()
 
 
-def fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed):
+def fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir):
     for datasets, no_cls in zip(datasets_list, no_clses_list):
         for i in range(len(datasets)):
             X, y, feature_names, label_names = load_dataset(
@@ -1405,7 +1405,7 @@ def fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed
 
             n_splits = 3
             k_fold = IterativeStratification(
-                n_splits=n_splits, order=1, random_state=seed)
+                n_splits=n_splits, order=1)
 
             full_hams = []
             sel_std_hams = []
@@ -1446,7 +1446,7 @@ def fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed
                 #  perform standard PSO FS
                 start_std_PSO = time.time_ns()    # marking start time of PSO
                 problem_std = Problem.FS_ML_hl(
-                    minimize=True, X=X_train, y=y_train, seed=seed)
+                    minimize=True, X=X_train, y=y_train)
 
                 pop_size = 3
                 n_iterations = 5
@@ -1472,7 +1472,7 @@ def fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed
                 y_train_s = Super_simple.label_convert_simple(
                     y_train, no_cls)   # Convert y_train
                 problem_sim = Problem.FS_ML_super_simple_hl(
-                    minimize=True, X=X_train, y=y_train_s, no_cls=no_cls, seed=seed)
+                    minimize=True, X=X_train, y=y_train_s, no_cls=no_cls)
 
                 pop_size = 3
                 n_iterations = 5

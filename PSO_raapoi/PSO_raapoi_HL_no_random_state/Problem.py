@@ -64,18 +64,16 @@ class FS(Problem):
 
 class FS_ML_hl(Problem):
 
-    def __init__(self, minimize, X, y, seed):
+    def __init__(self, minimize, X, y):
         self.minimize = minimize,
         self.X = X
         self.y = y
-        self.seed = seed
         self.threshold = 0.6
 
     def fitness(self, solution):
         feature_selected = np.where(solution > self.threshold)[0]
         X = self.X[:, feature_selected]
         y = self.y
-        seed = self.seed
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
@@ -84,7 +82,7 @@ class FS_ML_hl(Problem):
         scaler_1 = StandardScaler()
         scaler_2 = MinMaxScaler()
         k_fold = IterativeStratification(
-            n_splits=n_splits, order=1, random_state=seed)
+            n_splits=n_splits, order=1)
 
         hamming_losses = 0
         for train_idx, test_idx in k_fold.split(X, y):
@@ -113,18 +111,16 @@ class FS_ML_hl(Problem):
 
 class FS_ML_f1(Problem):
 
-    def __init__(self, minimize, X, y, seed):
+    def __init__(self, minimize, X, y):
         self.minimize = minimize,
         self.X = X
         self.y = y
-        self.seed = seed
         self.threshold = 0.6
 
     def fitness(self, solution):
         feature_selected = np.where(solution > self.threshold)[0]
         X = self.X[:, feature_selected]
         y = self.y
-        seed = self.seed
         if len(feature_selected) == 0:
             return self.worst_fitness()
 
@@ -133,7 +129,7 @@ class FS_ML_f1(Problem):
         scaler_1 = StandardScaler()
         scaler_2 = MinMaxScaler()
         k_fold = IterativeStratification(
-            n_splits=n_splits, order=1, random_state=seed)
+            n_splits=n_splits, order=1)
 
         f1_mics = 0
         for train_idx, test_idx in k_fold.split(X, y):
@@ -242,12 +238,11 @@ class FS_ML_super_f1(Problem):
 
 class FS_ML_super_simple_f1(Problem):
 
-    def __init__(self, minimize, X, y, no_cls, seed):
+    def __init__(self, minimize, X, y, no_cls):
         self.minimize = minimize,
         self.X = X
         self.y = y
         self.no_cls = no_cls
-        self.seed = seed
         self.threshold = 0.6
 
     def fitness(self, solution):
@@ -255,13 +250,12 @@ class FS_ML_super_simple_f1(Problem):
         X = self.X[:, feature_selected]
         y = self.y
         no_cls = self.no_cls
-        seed = self.seed
 
         if len(feature_selected) == 0:
             return self.worst_fitness()
         n_splits = 5
         k_fold = IterativeStratification(
-            n_splits=n_splits, order=1, random_state=seed)
+            n_splits=n_splits, order=1)
         f1_mics = 0
 
         # Here y is y_s, already converted when Problem initialization
@@ -282,12 +276,11 @@ class FS_ML_super_simple_f1(Problem):
 
 class FS_ML_super_simple_hl(Problem):
 
-    def __init__(self, minimize, X, y, no_cls, seed):
+    def __init__(self, minimize, X, y, no_cls):
         self.minimize = minimize,
         self.X = X
         self.y = y
         self.no_cls = no_cls
-        self.seed = seed
         self.threshold = 0.6
 
     def fitness(self, solution):
@@ -295,13 +288,12 @@ class FS_ML_super_simple_hl(Problem):
         X = self.X[:, feature_selected]
         y = self.y
         no_cls = self.no_cls
-        seed = self.seed
 
         if len(feature_selected) == 0:
             return self.worst_fitness()
         n_splits = 5
         k_fold = IterativeStratification(
-            n_splits=n_splits, order=1, random_state=seed)
+            n_splits=n_splits, order=1)
         hamming_losses = 0
 
         # Here y is y_s, already converted when Problem initialization

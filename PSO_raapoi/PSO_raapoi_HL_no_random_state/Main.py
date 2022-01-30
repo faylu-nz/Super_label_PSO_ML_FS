@@ -31,6 +31,6 @@ if __name__ == '__main__':
     # Calculation.full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list, run)
 	# Calculation.fullstd_PSOsel_std_sup_simple_f1(datasets_list, no_clses_list, run)
     # Calculation.fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run)
-    Calculation.fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed)
+    Calculation.fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir)
 
 # outDir = 'records/full_PSOsel_std_sim_hl/record_'

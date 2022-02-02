@@ -4,33 +4,46 @@ import random
 import sys
 warnings.filterwarnings('ignore')
 
-datasets_small = ['emotions']
-datasets_medium = ['birds']
-datasets_large = ['medical']
+# datasets_small = ['emotions']
+# datasets_medium = ['birds']
+# datasets_large = ['medical']
 #datasets_small = ['emotions', 'scene']
 #datasets_medium = ['yeast', 'birds', 'genbase']
 #datasets_large = ['enron', 'bibtex', 'Corel5k', 'medical']
-datasets_list = [datasets_small, datasets_medium, datasets_large]
 
-no_clses_small = 2
-no_clses_medium = 4
-no_clses_large = 8
-no_clses_list = [no_clses_small, no_clses_medium, no_clses_large]
+# datasets_small = []
+# datasets_medium = []
+# datasets_large = []
+
+# no_clses_small = 2
+# no_clses_medium = 4
+# no_clses_large = 8
+# no_clses_list = [no_clses_small, no_clses_medium, no_clses_large]
 
 # Main entry
 if __name__ == '__main__':
-    
-    run = int(sys.argv[1])
-    outDir = sys.argv[2]
+
+    dataset = sys.argv[1]
+    run = int(sys.argv[2])
+    outDir = sys.argv[3]
     seed = 1617*run
     random.seed(seed)
-    # Calculation.full_std_sel_sup_f1(datasets_list, no_clses_list)
-    # Calculation.full_std_sel_std_f1(datasets_list)
-    # Calculation.full_std_sel_sup_hl(datasets_list, no_clses_list)
-    # Calculation.full_std_sel_std_hl(datasets_list)
-    # Calculation.full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list, run)
-	# Calculation.fullstd_PSOsel_std_sup_simple_f1(datasets_list, no_clses_list, run)
-    # Calculation.fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run)
-    Calculation.fullstd_PSOsel_std_simple_hl(datasets_list, no_clses_list, run, outDir, seed)
+
+    if dataset == 'emotions' or 'scene':
+        no_cls = 2
+    elif dataset == 'yeast' or 'birds' or 'genbase':
+        no_cls = 4
+    else:
+        no_cls = 8
+
+# Calculation.full_std_sel_sup_f1(datasets_list, no_clses_list)
+# Calculation.full_std_sel_std_f1(datasets_list)
+# Calculation.full_std_sel_sup_hl(datasets_list, no_clses_list)
+# Calculation.full_std_sel_std_hl(datasets_list)
+# Calculation.full_std_PSOsel_std_sup_f1(datasets_list, no_clses_list, run)
+# Calculation.fullstd_PSOsel_std_sup_simple_f1(datasets_list, no_clses_list, run)
+# Calculation.fullstd_PSOsel_std_simple_f1(datasets_list, no_clses_list, run)
+    Calculation.fullstd_PSOsel_std_simple_hl(
+        dataset, no_cls, run, outDir, seed)
 
 # outDir = 'records/full_PSOsel_std_sim_hl/record_'
